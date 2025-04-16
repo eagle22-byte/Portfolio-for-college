@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KARUNYA DARSI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2 style="color: azure;">KARUNYA DARSI'S PORTFOLIO <br><marquee> Welcome to My Elegant Portfolio People!!</marquee></h2>
+    
+    <div class="nav-container">
+        <a href="portfolio.html">Home</a>
+        <a href="education.html">Education</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact info.html">Contact Info</a>
+        <div class="separator"></div>
+    </div>
+
+    <h1> Contact Info: </h1>
+    <p> You can reach me via email and my contact number: </p>
+    <p>Email: <a href="mailto:karunyadarsi@srmap.edu.in" style="color: white;">karunyadarsi@srmap.edu.in</a></p>
+    <p>Contact Number: 1234567890</p>
+
+    <form action="contact info.php" method="POST" onsubmit="return validateForm(event)">
+        <div>
+            Enter name: <input type="text" id="name" size="30" placeholder="Please enter your full name" required/><br>
+            Enter your email: <input type="email" id="email" size="30" placeholder="Enter your email id" required/><br>
+            Enter your mobile number: <input type="text" id="mobile" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10 digit phone no." required><br>
+            Enter why you want to contact me: <input type="text" id="message" size="50" placeholder="Enter at least 10 characters" maxlength="200"/><br>
+            <input type="submit" value="Submit"/>
+        </div>
+    </form>
+
+    <footer>
+        <p>&copy; 2025 Karunya Darsi. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function validateForm(event) {
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let mobile = document.getElementById("mobile").value.trim();
+        let message = document.getElementById("message").value.trim();
+
+        let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3}$/; 
+    
+    if (name === "") {
+        alert("Name is required!");
+        event.preventDefault();
+        return false;
+    }
+
+    if (!emailPattern.test(email)) {
+        alert("Enter a valid email address!");
+        event.preventDefault();
+        return false;
+    }
+
+    if (!/^\d{10}$/.test(mobile)) {
+        alert("Enter a valid 10-digit mobile number!");
+        event.preventDefault();
+        return false;
+    }
+
+    if (message.length < 10) {
+        alert("Message should be at least 10 characters long!");
+        event.preventDefault();
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true; 
+}
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
